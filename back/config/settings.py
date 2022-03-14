@@ -45,9 +45,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "app",
     # DRF
     "rest_framework",
+    "app",
     "drf_yasg",  # Swagger API Doc
     # DRF Authentication 이용
     "rest_framework.authtoken",
