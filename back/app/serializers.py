@@ -145,8 +145,8 @@ class VideoDataPostSerializer(serializers.ModelSerializer):
         """ 1. 괄호나 대괄호로 처리된 description 제거
             정규표현식으로 괄호 또는 대괄호 안에 있는 문자열 제거
         """
-        parenthesis = "\(.*\)|\s-\s.*"
-        bracket = "\[.*\]|\s-\s.*"
+        parenthesis = "\(.*?\)|\s-\s.*"
+        bracket = "\[.*?\]|\s-\s.*"
 
         parenthesis_cleaned_subtitle = re.sub(parenthesis,"", subtitles)
         bracket_cleaned_subtitle = re.sub(bracket, "", parenthesis_cleaned_subtitle)
