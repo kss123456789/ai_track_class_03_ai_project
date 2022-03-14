@@ -29,7 +29,7 @@ def punct():
   # use_cuda=torch.cuda.is_available()
   # print(f'useCuda: {use_cuda}')
   rpunct = RestorePuncts()
-  subtitles_puct = rpunct.punctuate(params['subtitles'])
+  subtitles_puct = rpunct.punctuate(params['subtitles'], lang='en')
 
   return subtitles_puct
 
