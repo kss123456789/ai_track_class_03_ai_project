@@ -113,7 +113,7 @@ const Home = () => {
                 onChange={(e) => setInputURL(e.target.value)}
                 type="text"
                 name="inputURL"
-                placeholder="영문자막이 있는 유튜브 URL 입력해 주세요"
+                placeholder="영문자막이 있는 유튜브 URL을 입력해 주세요"
               />
             </form>
             <div
