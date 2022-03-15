@@ -83,7 +83,7 @@ export default function Test(props) {
                   width="330px"
                   height="155px"
                   light={true}
-                  muted={true}
+                  muted={false}
                   url={log.video_data.url}
                 />
               </Box>
