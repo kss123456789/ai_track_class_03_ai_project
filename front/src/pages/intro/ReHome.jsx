@@ -31,7 +31,7 @@ const ReHome = () => {
   const requestURL = async () => {
     const fetchedVideoInfo = await axios
       .post(
-        "http://127.0.0.1:8000/api/video/",
+        "http://elice-kdt-ai-3rd-team04.elicecoding.com:5000/api/video/",
         // "http://elice-kdt-3rd-team04.koreacentral.cloudapp.azure.com:5000/api/videoInfo/",
         { url: inputURL }
       )

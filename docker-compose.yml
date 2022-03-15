@@ -38,7 +38,7 @@ services:
     # command: sh -c "nvidia-smi && FLASK_APP=app.py FLASK_DEBUG=1 flask run"
     command: sh -c "python app.py"
     ports:
-      - 5000:5000
+      - 8000:5000
     volumes:
       - ./punctServer:/app/
     environment:
@@ -57,7 +57,7 @@ services:
     # command: sh -c "while true; do python3 manage.py makemigrations --noinput; sleep 2; done && python3 manage.py migrate --run-syncdb --noinput && python3 manage.py runserver 0.0.0.0:8000"
     command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py migrate --run-syncdb --noinput && python3 manage.py collectstatic --noinput && gunicorn config.asgi -w 3 -k uvicorn.workers.UvicornWorker -b "0.0.0.0:8000" --timeout 240"
     ports:
-      - 8000:8000
+      - 5000:8000
     container_name: Django_backend
     volumes:
       - ./back:/app/

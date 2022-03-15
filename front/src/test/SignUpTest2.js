@@ -37,7 +37,7 @@ const SignUp = () => {
     const postData = { email, password1, password2 };
 
     await axios
-      .post("http://127.0.0.1:8000/api/rest-auth/registration/", postData)
+      .post("http://elice-kdt-ai-3rd-team04.elicecoding.com:5000/api/rest-auth/registration/", postData)
       .then((response) => {
         console.log(response, "성공!");
         navigate("/log-in");
