@@ -1,11 +1,7 @@
-import React, { useContext } from "react";
-import { VideoInfoStateContext } from "../../App.js";
-
+import React from "react";
 import Box from "@mui/material/Box";
 
-function Summary() {
-  const { fetchedVideoInfo } = useContext(VideoInfoStateContext);
-
+const Subtitle = ({ videoInfo }) => {
   return (
     <Box
       sx={{
@@ -16,19 +12,22 @@ function Summary() {
         margin: "auto",
         mr: 2,
         ml: 2,
-        padding: 1,
+        mb: 3,
+        padding: 2,
         maxWidth: "95vh",
-        height: "32vh",
-        backgroundColor: "#F2F2F2",
-        borderRadius: 5,
+        height: "22.4rem", // backgroundColor: "#F2F2F2",
+        fontSize: "20px",
       }}
     >
-      {fetchedVideoInfo.subtitles}
+      <p
+        style={{
+          color: "black",
+        }}
+      >
+        {videoInfo.subtitles}
+      </p>
     </Box>
   );
-}
-
-Summary.difaultProps = {
-  subtitle: "자막 자리 입니다아",
 };
-export default Summary;
+
+export default Subtitle;

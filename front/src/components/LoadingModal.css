@@ -1,0 +1,28 @@
+.modalBg {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(38, 38, 38, 0.9);
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 10;
+}
+.modalTxt {
+  z-index: 20;
+  color: #e05448;
+}
+/* .modalImg {
+  z-index: 20;
+  color: #e05448;
+  margin-right: 50px;
+} */
+
+.modalBg span {
+  margin-top: 40px;
+}

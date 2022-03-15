@@ -69,5 +69,6 @@ transformers==4.16.2
 typing_extensions==4.1.1
 uritemplate==4.1.1
 urllib3==1.26.8
+uvicorn==0.17.6
 youtube-dl==2021.12.17
 youtube-transcript-api==0.4.3

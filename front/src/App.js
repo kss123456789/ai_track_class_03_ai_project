@@ -1,58 +1,57 @@
-import React, { useState, createContext } from "react";
-import Navbar from "./components/Navbar";
+import React from "react";
 import "./App.css";
+import GlobalStyle from "./styles/GlobalStyle";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./pages/intro/Home.jsx";
 import Team from "./pages/team/Team.jsx";
-import LogIn from "./pages/login/LogIn.jsx";
-import SignUp from "./pages/login/SignUp.jsx";
-import Video from "./pages/main/Video";
-
-export const VideoInfoStateContext = createContext(null);
-export const VideoInfoDispatchContext = createContext(null);
-
-// import NavbarLogin from "./components/NavbarLogin";
+import Main from "./pages/main/Main";
+import Intro from "./pages/intro/Intro";
+import Home from "./pages/intro/Home";
+import MySummary from "./pages/mysummary/MyPage";
+import ReHome from "./pages/intro/ReHome";
+import Login from "./pages/login/LogInModal";
+import SignUp from "./pages/login/SignUpModal";
+import PrivateRoute from "./service/PrivateRoute";
+import PublicRoute from "./service/PublicRoute";
 
 function App() {
-  const [fetchedVideoInfo, setFetchedVideoInfo] = useState();
-
-  // Response 받은거 state로 넣는 함수
-  const handleResponse = (
-    idParam,
-    urlParam,
-    titleParam,
-    subtitleParam
-    // summaryParam,
-  ) => {
-    const fetchedInfo = {
-      id: idParam,
-      url: urlParam,
-      title: titleParam,
-      subtitles: subtitleParam,
-      // summaryParam,
-    };
-    setFetchedVideoInfo([fetchedInfo]);
-  };
-
   return (
-    <>
-      <VideoInfoStateContext.Provider value={fetchedVideoInfo}>
-        <VideoInfoDispatchContext.Provider value={handleResponse}>
-          <Router>
-            <Navbar />
-            {/* <NavbarLogin /> */}
+    <div>
+      <GlobalStyle />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Intro />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/re-home" element={<ReHome />} />
+          <Route path="/team" element={<Team />} />
+          <Route path="/main" element={<Main />} />
 
-            <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/team" element={<Team />} />
-              <Route path="/log-in" element={<LogIn />} />
-              <Route path="/sign-up" element={<SignUp />} />
-              <Route path="/video" element={<Video />} />
-            </Routes>
-          </Router>
-        </VideoInfoDispatchContext.Provider>
-      </VideoInfoStateContext.Provider>
-    </>
+          <Route
+            path="/log-in"
+            element={
+              <PublicRoute>
+                <Login />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/sign-up"
+            element={
+              <PublicRoute>
+                <SignUp />
+              </PublicRoute>
+            }
+          />
+          <Route
+            path="/my-summary"
+            element={
+              <PrivateRoute>
+                <MySummary />
+              </PrivateRoute>
+            }
+          />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
