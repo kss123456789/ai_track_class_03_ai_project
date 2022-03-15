@@ -62,7 +62,7 @@ const Register = ({ closeModal }) => {
     e.preventDefault();
     await axios
       .post(
-        "http://elice-kdt-3rd-team04.koreacentral.cloudapp.azure.com:5000/api/rest-auth/registration/",
+        "http://localhost:8000/api/rest-auth/registration/",
         {
           email: email,
           password1: password1,

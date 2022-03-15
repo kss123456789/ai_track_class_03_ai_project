@@ -3,7 +3,7 @@ back/venv/
 /venv
 *.pyc
 .idea
-/.vscode
+**/.vscode
 /venvAi
 
 # BackEnd

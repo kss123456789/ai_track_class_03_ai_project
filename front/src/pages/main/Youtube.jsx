@@ -19,7 +19,7 @@ const Youtube = ({ videoInfo }) => {
         url={playerURL}
         playing={true}
         loop={true}
-        muted={true}
+        muted={false}
         className="react-player"
         width="100%"
         height="100%"

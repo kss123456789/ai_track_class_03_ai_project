@@ -97,7 +97,7 @@ export default function PlaylistCarousel(props) {
                     width="330px"
                     height="155px"
                     light={true}
-                    muted={true}
+                    muted={false}
                     url={playlist.video_data.url}
                   />
                 </Box>
@@ -129,7 +129,7 @@ export default function PlaylistCarousel(props) {
                     width="330px"
                     height="155px"
                     light={true}
-                    muted={true}
+                    muted={false}
                     url={playlist.video_data.url}
                   />
                 </Box>

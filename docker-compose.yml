@@ -36,16 +36,9 @@ services:
     image: punctserver
     container_name: punctserver
     # command: sh -c "nvidia-smi && FLASK_APP=app.py FLASK_DEBUG=1 flask run"
-    command: sh -c "nvidia-smi && python app.py"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
+    command: sh -c "python app.py"
     ports:
-      - 8000:5000
+      - 5000:5000
     volumes:
       - ./punctServer:/app/
     environment:
@@ -61,20 +54,10 @@ services:
       dockerfile: Dockerfile.dev
       context: ./back
     image: clarkgable1/aiprj:latest
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-
     # command: sh -c "while true; do python3 manage.py makemigrations --noinput; sleep 2; done && python3 manage.py migrate --run-syncdb --noinput && python3 manage.py runserver 0.0.0.0:8000"
-    command: sh -c "nvidia-smi && python3 manage.py makemigrations --noinput && python3 manage.py migrate --run-syncdb --noinput
-      && python3 manage.py collectstatic --noinput
-      && gunicorn config.asgi -w 3 -k uvicorn.workers.UvicornWorker -b "0.0.0.0:8000" --timeout 240"
+    command: sh -c "python3 manage.py makemigrations --noinput && python3 manage.py migrate --run-syncdb --noinput && python3 manage.py collectstatic --noinput && gunicorn config.asgi -w 3 -k uvicorn.workers.UvicornWorker -b "0.0.0.0:8000" --timeout 240"
     ports:
-      - 5000:8000
+      - 8000:8000
     container_name: Django_backend
     volumes:
       - ./back:/app/
@@ -87,13 +70,6 @@ services:
     restart: always
     networks:
       - backnet
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
     # # FRONTEND
     # frontend:
     #   command: "npm start"
@@ -112,4 +88,3 @@ services:
 
 networks:
   backnet:
-
