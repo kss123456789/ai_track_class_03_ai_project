@@ -62,7 +62,7 @@ const Register = ({ closeModal }) => {
     e.preventDefault();
     await axios
       .post(
-        "http://localhost:8000/api/rest-auth/registration/",
+        "http://127.0.0.1:8000/api/rest-auth/registration/",
         {
           email: email,
           password1: password1,
