@@ -99,6 +99,7 @@ WSGI_APPLICATION = "config.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/4.0/ref/settings/#databases
 
+
 env_file = os.path.join(BASE_DIR, ".env.dev")
 dotenv.read_dotenv(env_file)
 
@@ -125,6 +126,7 @@ else:
             "HOST": get_env("MYSQL_HOST"),
             "PORT": get_env("MYSQL_PORT"),
         }
+
     }
 
 
